@@ -2,21 +2,19 @@ package com.example.jogo_da_forca_kotlin.facade
 
 import com.example.jogo_da_forca_kotlin.model.Forca
 import com.example.jogo_da_forca_kotlin.repository.BancoPalavras
+import kotlin.system.exitProcess
 
 class ConsoleForca {
     private var banco: BancoPalavras = BancoPalavras()
     private var palavra: String
     private var dica: String
-    private lateinit var forca: Forca
+    private var forca: Forca
 
     init {
         this.banco.sortear()
         this.palavra = banco.palavra()
         this.dica = banco.dica()
-    }
-
-    private fun addForca(palavra: String, dica: String) {
-        this.forca = Forca(palavra, dica)
+        this.forca = Forca(this.palavra, this.dica)
     }
 
     fun jogar() {
@@ -27,8 +25,6 @@ class ConsoleForca {
 //        print("Escolha uma dica: ")   // Obter a dica;
 //        this.dica = readLine()!!
 //        println()
-
-        addForca(this.palavra, this.dica)
 
         // Retornar a quantidade de letras no total;
         println("Quantidade de Letras da Palavra: ${this.forca.quantLetras()}")
@@ -66,12 +62,20 @@ class ConsoleForca {
                 println(e.message)
             }
         }
-        if (this.forca.resultado()) {
-            println("Você Ganhou!!! :)")
-        } else {
-            println("Você Perdeu... :(")
+        when (this.forca.resultado()) {
+            true -> println("Você Ganhou!!! :)")
+            else -> println("Você Perdeu... :(")
         }
-        println("A Palavra era: ${this.forca.palavra()}")
 
+        println("A Palavra era: ${this.forca.palavra()}")
+        println()
+
+        println("Deseja jogar mais uma vez? [S/N]")
+        var reiniciar = readLine()!!
+        reiniciar.uppercase()
+        when (reiniciar) {
+            "S" ->
+            "N" -> exitProcess(1)
+        }
     }
 }

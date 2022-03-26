@@ -55,25 +55,32 @@ class Facade {
 
     fun status(): String {
         var output = String()
-        // Retornar a quantidade de letras no total;
-        output += "Quantidade de Letras da Palavra: ${this.forca.quantLetras()}"
+        // Retornar a Dica da Palavra;
+        output += "Dica:                     ${this.forca.dica()}"
+        output += "\n"
+
+        output += "\n"
+        output += "Quant. Letras:            ${this.forca.quantLetras()}"
         output += "\n"
 
         // Retornar a quantidade de letras distintas;
-        output += "Quantidade de Letras Distintas da Palavra:  ${this.forca.quantLetrasDist()}"
+        output += "Quant. Letras Distintas:  ${this.forca.quantLetrasDist()}"
         output += "\n"
-
+        // Retornar Letras Usadas;
         output += "Letras Usadas: ${this.forca.letrasUsadas()}"
+        output += "\n"
+        // Retornar Acertos;
         output += "Acertos:       ${this.forca.acertos()}"
+        output += "\n"
         output += "Erros:         ${this.forca.erros()}"
+        output += "\n"
         output += "Penalidade:    ${this.forca.penalidade()}"
         output += "\n"
 
-        output += "Dica:  ${this.forca.dica()}"
         output += "\n"
-
         output += this.forca.palavraEscondida()
         output += "\n"
+
         return output
     }
 }

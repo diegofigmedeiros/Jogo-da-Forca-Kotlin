@@ -74,7 +74,6 @@ class ConsoleForca {
         var reiniciar = readLine()!!
         reiniciar.uppercase()
         when (reiniciar) {
-            "S" ->
             "N" -> exitProcess(1)
         }
     }

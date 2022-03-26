@@ -18,4 +18,6 @@ class MainActivity : AppCompatActivity() {
         view = findViewById(R.id.tv_status)
         view.text = jogo.status()
     }
+
+    fun {}
 }

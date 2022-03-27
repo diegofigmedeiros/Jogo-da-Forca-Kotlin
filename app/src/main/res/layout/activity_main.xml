@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv_status"
+        android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/status"
-        app:layout_constraintBottom_toTopOf="@+id/in_letra"
+        app:layout_constraintBottom_toTopOf="@+id/letra"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.512" />
 
     <EditText
-        android:id="@+id/in_letra"
+        android:id="@+id/letra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
@@ -29,13 +29,13 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:textColorHint="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/bt_adivinhar"
+        app:layout_constraintBottom_toTopOf="@+id/adivinhar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bt_adivinhar"
+        android:id="@+id/adivinhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="150dp"

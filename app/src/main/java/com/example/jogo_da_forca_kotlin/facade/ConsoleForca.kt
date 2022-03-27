@@ -52,11 +52,8 @@ class ConsoleForca {
                 val letra = readLine()!!.uppercase()
                 println()
 
-                // Verificar se é uma unica letra
-                this.forca.testarLetra(letra)
-
                 // Verificar se uma letra está contida na palavra;
-                this.forca.descobrirPalavra()
+                this.forca.descobrirPalavra(letra)
 
             } catch (e: Throwable) {
                 println(e.message)

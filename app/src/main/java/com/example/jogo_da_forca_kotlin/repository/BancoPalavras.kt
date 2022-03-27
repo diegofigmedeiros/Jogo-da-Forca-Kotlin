@@ -5,7 +5,7 @@ class BancoPalavras {
     private var palavra = String()
 
     init {
-        listaPalavras.putAll(mapOf("Bola" to "Redonda", "Chocolate" to "Cacau", "Morango" to "Fertilizante"))
+        listaPalavras.putAll(mapOf("Bola" to "Redonda", "Chocolate" to "Cacau", "Morango" to "Rosa"))
     }
 
     fun add(palavra: String, dica: String) {

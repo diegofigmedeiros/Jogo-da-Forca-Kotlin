@@ -35,7 +35,10 @@ class Forca (palavra: String, dica: String) {
         return this.letrasUsadas.joinToString(", ")
     }
 
-    fun descobrirPalavra() {
+    fun descobrirPalavra(letra: String) {
+        // Verificar se é uma unica letra
+        testarLetra(letra)
+
         if (this.palavra.contains(this.letra)) {
             acertou()
         } else {

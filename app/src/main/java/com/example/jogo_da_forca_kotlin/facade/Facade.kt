@@ -16,41 +16,19 @@ class Facade {
         return this.banco
     }
 
-    fun jogar() {
+    fun terminou(): Boolean {
+        return this.forca.terminou()
+    }
 
-        while (!this.forca.terminou()) {
-            try {
-                status()
+    fun jogar(letra: String) {
+        try {
+            // Verificar se uma letra está contida na palavra;
+            this.forca.descobrirPalavra(letra.uppercase())
 
-                print("Digite uma letra: ")
-                val letra = readLine()!!.uppercase()
-                println()
-
-                // Verificar se é uma unica letra
-                this.forca.testarLetra(letra)
-
-                // Verificar se uma letra está contida na palavra;
-                this.forca.descobrirPalavra()
-
-            } catch (e: Throwable) {
-                println(e.message)
-            }
-        }
-        when (this.forca.resultado()) {
-            true -> println("Você Ganhou!!! :)")
-            else -> println("Você Perdeu... :(")
+        } catch (e: Throwable) {
+            println(e.message)
         }
 
-        println("A Palavra era: ${this.forca.palavra()}")
-        println()
-
-        println("Deseja jogar mais uma vez? [S/N]")
-        var reiniciar = readLine()!!
-        reiniciar.uppercase()
-//        when (reiniciar) {
-//            "S" ->
-//            "N" -> exitProcess(1)
-//        }
     }
 
     fun status(): String {
@@ -76,11 +54,16 @@ class Facade {
         output += "\n"
         output += "Penalidade:    ${this.forca.penalidade()}"
         output += "\n"
-
         output += "\n"
         output += this.forca.palavraEscondida()
         output += "\n"
-
+        output += "\n"
+        if (terminou()) {
+            output += when (this.forca.resultado()) {
+                true -> "Você Ganhou!!! :)"
+                else -> "Você Perdeu... :("
+            }
+        }
         return output
     }
 }

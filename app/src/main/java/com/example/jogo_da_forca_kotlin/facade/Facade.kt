@@ -31,6 +31,14 @@ class Facade {
 
     }
 
+    fun errosImagem(): Int {
+        return this.forca.erros() + 1
+    }
+
+    fun resultado(): Boolean {
+        return this.forca.resultado()
+    }
+
     fun status(): String {
         var output = String()
         // Retornar a Dica da Palavra;

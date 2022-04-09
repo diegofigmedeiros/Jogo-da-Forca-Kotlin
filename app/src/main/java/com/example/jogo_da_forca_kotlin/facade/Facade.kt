@@ -34,36 +34,26 @@ class Facade {
     fun status(): String {
         var output = String()
         // Retornar a Dica da Palavra;
-        output += "Dica:                     ${this.forca.dica()}"
+        output += "Dica: ${this.forca.dica()}"
         output += "\n"
-
+        output += "Quant. Letras: ${this.forca.quantLetras()}"
         output += "\n"
-        output += "Quant. Letras:            ${this.forca.quantLetras()}"
-        output += "\n"
-
         // Retornar a quantidade de letras distintas;
-        output += "Quant. Letras Distintas:  ${this.forca.quantLetrasDist()}"
+        output += "Quant. Letras Dist.: ${this.forca.quantLetrasDist()}"
         output += "\n"
         // Retornar Letras Usadas;
         output += "Letras Usadas: ${this.forca.letrasUsadas()}"
         output += "\n"
         // Retornar Acertos;
-        output += "Acertos:       ${this.forca.acertos()}"
+        output += "Acertos: ${this.forca.acertos()}"
         output += "\n"
-        output += "Erros:         ${this.forca.erros()}"
-        output += "\n"
-        output += "Penalidade:    ${this.forca.penalidade()}"
+        output += "Erros:   ${this.forca.erros()}"
+        //output += "\n"
+        //output += "Penalidade:    ${this.forca.penalidade()}"
+        //output += "\n"
         output += "\n"
         output += "\n"
         output += this.forca.palavraEscondida()
-        output += "\n"
-        output += "\n"
-        if (terminou()) {
-            output += when (this.forca.resultado()) {
-                true -> "Você Ganhou!!! :)"
-                else -> "Você Perdeu... :("
-            }
-        }
         return output
     }
 }

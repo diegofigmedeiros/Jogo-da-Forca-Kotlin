@@ -4,4 +4,6 @@
     <string name="adivinhar">Adivinhar</string>
     <string name="letra">Letra</string>
     <string name="forca1">forca1</string>
+    <string name="textresult">TextView</string>
+    <string name="resultado">resultado</string>
 </resources>

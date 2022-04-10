@@ -37,6 +37,19 @@ class MainActivity : AppCompatActivity() {
             var imagemforca = "forca${facade.errosImagem()}"
             this.imagem.setImageResource(resources.getIdentifier(imagemforca, "drawable", packageName))
 
+            if (this.facade.terminou()) {
+                if (this.facade.resultado()) {
+                    val intent = Intent(this, Result::class.java).apply {
+                        putExtra("Result", "Ganhou")
+                    }
+                    startActivity(intent)
+                }
+                else {
+                    val intent = Intent(this, Result::class.java).apply {
+                        putExtra("Result", "Perdeu")
+                    }
+                    startActivity(intent)
+                }
             }
         }
     }

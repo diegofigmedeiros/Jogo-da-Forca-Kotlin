@@ -1,11 +1,13 @@
 package com.example.jogo_da_forca_kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Button
+import android.widget.ImageView
 import com.example.jogo_da_forca_kotlin.facade.Facade
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var status: TextView
     private lateinit var letra: EditText
     private lateinit var adivinhar: Button
+    private lateinit var imagem: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,23 +23,21 @@ class MainActivity : AppCompatActivity() {
 
         facade = Facade()
 
-        this.letra = findViewById(R.id.letra)
-        this.status = findViewById(R.id.status)
-        this.adivinhar = findViewById(R.id.adivinhar)
-
+        this.letra     = findViewById(R.id.letra)
+        this.status    = findViewById(R.id.status)
         this.status.text = facade.status()
+        this.adivinhar = findViewById(R.id.adivinhar)
+        this.imagem    = findViewById(R.id.imagem)
 
-        this.adivinhar.setOnClickListener(clickAdivinhar())
-    }
+        this.adivinhar.setOnClickListener{
+            val letra = this.letra.text.toString()
+            this.facade.jogar(letra)
+            this.letra.setText("")
+            this.status.text = facade.status()
+            var imagemforca = "forca${facade.errosImagem()}"
+            this.imagem.setImageResource(resources.getIdentifier(imagemforca, "drawable", packageName))
 
-    inner class clickAdivinhar: View.OnClickListener {
-        override fun onClick(p0: View?) {
-            if (this@MainActivity.facade.terminou()) {
-                this@MainActivity.adivinhar.isEnabled = false
             }
-            val letra = this@MainActivity.letra.text.toString()
-            facade.jogar(letra)
-            this@MainActivity.status.text = facade.status()
         }
     }
 }

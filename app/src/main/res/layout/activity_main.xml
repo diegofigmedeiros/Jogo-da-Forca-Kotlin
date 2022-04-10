@@ -6,23 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status"
-        app:layout_constraintBottom_toTopOf="@+id/letra"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
-
     <EditText
         android:id="@+id/letra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/letra"
@@ -31,18 +18,44 @@
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/adivinhar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagem" />
 
     <Button
         android:id="@+id/adivinhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
         android:text="@string/adivinhar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/letra" />
+
+    <ImageView
+        android:id="@+id/imagem"
+        android:layout_width="260dp"
+        android:layout_height="420dp"
+        android:contentDescription="@string/forca1"
+        app:layout_constraintBottom_toTopOf="@+id/letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515"
+        app:srcCompat="@drawable/forca1" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="188dp"
+        android:text="@string/status"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/letra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imagem"
+        app:layout_constraintVertical_bias="0.901"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
